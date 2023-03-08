@@ -34,7 +34,7 @@ class PdfReport extends ReportGenerator
 			$pdf = \App::make('snappy.pdf.wrapper');
 			$pdf->setOption('footer-font-size', 10);
 			$pdf->setOption('footer-left', __('laravel-report-generator::messages.page'));
-			$pdf->setOption('footer-right', __('laravel-report-generator::messages.printed_at', ['date' => date('d M Y H:i:s')]));
+			$pdf->setOption('footer-right', __('laravel-report-generator::messages.printed_at', ['date' => date('d M Y H:i:s'), 'user' => Auth::user()->name]));
 		} else if ($pdfLibrary === 'dompdf') {
 			try {
 				$pdf = \App::make('dompdf.wrapper');
